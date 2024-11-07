@@ -1,0 +1,26 @@
+import random
+
+# Some sample words and phrases to create a poetic feel
+nouns = ["moonlight", "dream", "whisper", "ocean", "shadow", "mystery", "sky", "memory", "echo", "sunrise"]
+verbs = ["flows", "whispers", "wanders", "echoes", "dances", "lingers", "rises", "falls", "calls", "fades"]
+adjectives = ["silent", "endless", "lost", "soft", "forgotten", "golden", "quiet", "ancient", "hidden", "wild"]
+
+# Function to create a line of poetry
+def create_line(theme):
+    line_structure = [
+        f"The {random.choice(adjectives)} {theme} {random.choice(verbs)} in the {random.choice(nouns)}.",
+        f"A {random.choice(adjectives)} {theme}, {random.choice(verbs)} in the {random.choice(nouns)}.",
+        f"{theme.capitalize()} {random.choice(verbs)} like a {random.choice(adjectives)} {random.choice(nouns)}.",
+        f"In the {random.choice(adjectives)} {random.choice(nouns)}, {theme} {random.choice(verbs)} softly."
+    ]
+    return random.choice(line_structure)
+
+# Generate a short poem
+def generate_poem(theme, lines=4):
+    poem = [create_line(theme) for _ in range(lines)]
+    return "\n".join(poem)
+
+# User input for theme
+theme = input("Enter a theme or word for your poem: ")
+print("\nYour generated poem:\n")
+print(generate_poem(theme))
